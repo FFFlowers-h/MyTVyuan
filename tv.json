@@ -1,21 +1,26 @@
 {
-  "sites": [
-    {
-      "key": "xgzy_xigua",
-      "name": "西瓜采集源",
-      "type": 1,
-      "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8/at/xml/",
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "lzi_lzm3u8",
-      "name": "lzm3u8采集源",
-      "type": 1,
-      "api": "https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/",
-      "searchable": 1,
-      "filterable": 1
-    }
-  ]
+    "sites": [
+        {
+            "key": "xigua_json",
+            "name": "西瓜资源JSON",
+            "type": 1,
+            "api": "https://caiji.xgzyapi.com/api.php/provide/vod/",
+            "key": "xigua_m3u8",
+            "name": "西瓜M3U8资源",
+            "type": 0,
+            "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8/at/xml/",
+            "searchable": 1,
+            "quickSearch": 1,
+            "searchPath": "?ac=list&wd="
+        },
+        {
+            "key": "lz_m3u8",
+            "name": "量子M3U8资源",
+            "type": 0,
+            "api": "https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/",
+            "searchable": 1,
+            "quickSearch": 1,
+            "searchPath": "?ac=list&wd="
+        }
+    ]
 }
-
