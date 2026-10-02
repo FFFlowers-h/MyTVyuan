@@ -1,12 +1,21 @@
 {
   "sites": [
     {
-      "key": "multi_merge_all",
-      "name": "多源聚合【可增源】",
-      "type": 2,
-      "api": "js://const sourceList=[{name:\"西瓜源\",url:\"https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8/at/xml/\"},{name:\"lz源\",url:\"https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/\"}];function parseXml(e){const t=[];let r;const n=/<vod>([\\s\\S]*?)<\\/vod>/g;while((r=n.exec(e))){const i={};const o=r[1].match(/<vod_name>([\\s\\S]*?)<\\/vod_name>/);const s=r[1].match(/<vod_id>([\\s\\S]*?)<\\/vod_id>/);const a=r[1].match(/<vod_pic>([\\s\\S]*?)<\\/vod_pic>/);const h=r[1].match(/<vod_remarks>([\\s\\S]*?)<\\/vod_remarks>/);const d=r[1].match(/<vod_url>([\\s\\S]*?)<\\/vod_url>/);o&&s&&(i.vod_name=o[1],i.vod_id=s[1],i.vod_pic=a?a[1]:"",i.vod_remarks=h?h[1]:"",i.vod_url=d?d[1]:"",t.push(i))}return t}function reqSafe(e){try{return req(e)}catch{return""}}if(input===\"\"){let e=[];const t=new Map;for(const r of sourceList){const n=reqSafe(r.url);const i=parseXml(n);for(const o of i)t.has(o.vod_name)||t.set(o.vod_name,o)}e=Array.from(t.values());return JSON.stringify({list:e})}else if(input.startsWith(\"search\")){const e=input.split(\"search\")[1];let t=[];const r=new Map;for(const n of sourceList){const i=reqSafe(n.url+\"?wd=\"+e);const o=parseXml(i);for(const s of o)r.has(s.vod_name)||r.set(s.vod_name,s)}t=Array.from(r.values());return JSON.stringify({list:t})}else{let e=[];for(const t of sourceList){const r=reqSafe(t.url+\"?ac=detail&ids=\"+input);const n=parseXml(r);e=[...e,...n]}return JSON.stringify({list:e})}",
+      "key": "xgzy_xigua",
+      "name": "西瓜采集源",
+      "type": 1,
+      "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8/at/xml/",
+      "searchable": 1,
+      "filterable": 1
+    },
+    {
+      "key": "lzi_lzm3u8",
+      "name": "lzm3u8采集源",
+      "type": 1,
+      "api": "https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/",
       "searchable": 1,
       "filterable": 1
     }
   ]
 }
+
